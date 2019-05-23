@@ -3,6 +3,7 @@
     <head>
         <title>Nieprzeczytane książki></title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
             <div>
@@ -14,9 +15,24 @@
             <div>
                 <div>
                     <button class="sort" type="button">sortuj</button>
+                    <form>
+                            <input type="radio" name="ways" value="date">Według daty<br>
+                            <input type="radio" name="ways" value="alphabetically">Afabetycznie<br>
+                    </form>
                 </div>
                 <div>
                     <button class="add position" type="button">dodaj pozycję</button>
+                    <input name="title" placeholder="wpisz tytuł">
+                    <input name="author" placeholder="wpisz autora">
+                    Wybierz Kategorię:
+                    <form>
+                        <input type="radio" name="category" value="romance">Romans<br>
+                        <input type="radio" name="category" value="fantasy">Fantastyczne<br>
+                        <input type="radio" name="category" value="horror">Horror<br>
+                        <input type="radio" name="category" value="adventure">Przygodowa<br>
+                        <input type="radio" name="category" value="criminal">Kryminalne<br>
+                        <input type="radio" name="category" value="thiller">Thiller<br>
+                    </form>
                 </div>
                 <div>
                     <form>
@@ -25,13 +41,35 @@
                 </div>
             </div>
             <div>
-                <table>
-                    <tr>
-                        <td>data</td>
-                        <td>tytuł</td>
-                        <td>autor</td>
-                        <td>kategoria</td>
-                    </tr>
+                <table class="table">
+                    <thead class="thead">
+                         <tr>
+                            <td>data</td>
+                            <td>tytuł</td>
+                            <td>autor</td>
+                            <td>kategoria</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11.05.2019</td>
+                            <td>Kroniki Jakuba Wędrowycza</td>
+                            <td>Andrzej Pilipiuk</td>
+                            <td>Komedia</td>
+                        </tr>
+                        <tr>
+                            <td>11.05.2019</td>
+                            <td>Mitologia</td>
+                            <td>Jan Parandowski</td>
+                            <td>Fantastyczne</td>
+                        </tr>
+                        <tr>
+                            <td>11.05.2019</td>
+                            <td>Siewca Wiatru</td>
+                            <td>Maja Lidia Kossakowska</td>
+                            <td>Fantastyczne</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
     </body>
