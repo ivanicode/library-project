@@ -1,13 +1,14 @@
 body {
     text-align: center;
+    background-color: #ffd9b3;
 }
 
 h1 {
     font-size: 100px;
+    color: #AB500B;
 }
 
 div.buttons {
-   border: 1px black solid;
    width: 1400px;
    height: 100px;
    display: inline-flex;

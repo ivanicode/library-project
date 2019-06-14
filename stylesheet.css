@@ -1,12 +1,41 @@
-.table {
-    display: table;
-    border-collapse: collapse;
-    border-spacing: 10px;
-    border-color:gray;
+body {
+    background-color: bisque;
+    text-align: center;
 }
 
-thead {
-    display: table-header-group;
-    vertical-align: middle;
-    border-color: gray; 
+h1 {
+    font-size: 80px;
+}
+
+p {
+    font-size: 30px;
+}
+
+div.options {
+    border: solid black 1px;
+    display: inline-flex;
+}
+
+div.sort {
+    margin: auto;
+    border: solid black 1px;
+    width: 300px;
+}
+
+div.add {
+    margin: auto;
+    border: solid black 1px;
+    width: 200px;
+}
+
+div.search {
+    margin: auto;
+    border: solid black 1px;
+    width: 200px;
+}
+
+div.table {
+    margin: auto;
+    border: solid black 1px;
+    width: 1000px;
 }
