@@ -39,3 +39,27 @@ div.table {
     border: solid black 1px;
     width: 1000px;
 }
+/*
+nav {
+    margin: 0 auto;
+    width: 1200px;
+}
+*/
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+li {
+    padding: 10px 20px;
+}
+
+li a {
+    color: brown;
+    text-decoration: none;
+}
+
+li:hover a {
+    color: red;
+}

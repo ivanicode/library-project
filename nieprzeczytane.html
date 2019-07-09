@@ -6,14 +6,26 @@
         <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
+            <nav>
+                    <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="przeczytane.html">Przeczytane<a></li>
+                            <li>Nieprzeczytane</li>
+                            <li><a href="dokupienia.html">Do kupienia<a></li>
+                            
+                    </ul>
+            </nav>
+            
             <h1>Nieprzeczytane książki</h1>
             <p>Tutaj umieszczone zostały tytuły książek, które dopiero zamierzasz przeczytać i już czekają na Ciebie na półkach.</p>
             <div class="options">
                 <div class="sort">
-                    <button class="sort" type="button">sortuj</button>
                     <form>
-                            <input type="radio" name="ways" value="date">Według daty<br>
-                            <input type="radio" name="ways" value="alphabetically">Afabetycznie<br>
+                        <label for="sort">Sortuj</label>
+                        <select id="sort">
+                            <option value="date">Według daty</option>
+                            <option value="alphabetically">Alfabetycznie</option>
+                        </select>
                     </form>
                 </div>
                 <div class="add">
@@ -40,10 +52,10 @@
                 <table class="table">
                     <thead class="thead">
                          <tr>
-                            <td>data</td>
-                            <td>tytuł</td>
-                            <td>autor</td>
-                            <td>kategoria</td>
+                            <th>data</th>
+                            <th>tytuł</th>
+                            <th>autor</th>
+                            <th>kategoria</th>
                         </tr>
                     </thead>
                     <tbody>
