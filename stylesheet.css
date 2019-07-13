@@ -63,3 +63,14 @@ li a {
 li:hover a {
     color: red;
 }
+
+div.text {
+    border: 1px solid black;
+    margin: auto;
+    width: 900px;
+    
+}
+
+table.th {
+    font-size: 50px;
+}
