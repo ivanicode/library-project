@@ -33,12 +33,16 @@ div.search {
     border: solid black 1px;
     width: 200px;
 }
-
+/*
 div.table {
-    margin: auto;
+    margin: 0 auto;
+    width: auto;
+    
     border: solid black 1px;
     width: 1000px;
+    */
 }
+
 /*
 nav {
     margin: 0 auto;
@@ -71,6 +75,20 @@ div.text {
     
 }
 
-table.th {
-    font-size: 50px;
+table {
+    margin: auto;
+    border-style: inset;
+}
+
+td, th {
+    width: 300px;
+    padding: 20px;
+}
+
+th {
+    border: 3px solid
+}
+
+.alt1 {
+    background-color: ffbb99;
 }
