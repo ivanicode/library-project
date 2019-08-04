@@ -3,23 +3,33 @@
         <head>
             <title>Przeczytane książki</title>
             <meta charset="utf-8">
+            <link rel="stylesheet" href="stylesheet.css">
         </head>
         <body>
-                <div>
-                    <input type="button" value="wróć" 
-                    onclick="window.location.href='file:///home/ivani/projects/library-project/index.html'" />
+                <nav>
+                        <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li>Przeczytane</li>
+                                <li><a href="nieprzeczytane.html">Nieprzeczytane</a></li>
+                                <li><a href="dokupienia.html">Do kupienia</a></li>
+                                
+                        </ul>
+                </nav>
+                <div class="text">
+                    <h1>Przeczytane książki</h1>
+                    <p>Tutaj umieszczone zostały tytuły książek, które są już przez Ciebie przeczytane. Nadaj im ocenę, żeby wiedzieć do których książek warto kiedyś wrócić.</p>
                 </div>
-                <h1>Przeczytane książki</h1>
-                <p>Tutaj umieszczone zostały tytuły książek, które są już przez Ciebie przeczytane. Nadaj im ocenę, żeby wiedzieć do których książek warto kiedyś wrócić.</p>
-                <div>
-                    <div>
-                        <button class="sort" type="button">sortuj</button>
+                <div class="options">
+                    <div class="sort">
                         <form>
-                            <input type="radio" name="ways" value="date">Według daty<br>
-                            <input type="radio" name="ways" value="alphabetically">Afabetycznie<br>
+                            <label for="sort">Sortuj</label>
+                            <select id="sort">
+                                <option value="date">Według daty</option>
+                                <option value="alphabetically">Alfabetycznie</option>
+                            </select>
                         </form>
                     </div>
-                    <div>
+                    <div class="add">
                         <button class="add position" type="button">dodaj pozycję</button>
                         <input name="title" placeholder="wpisz tytuł">
                         <input name="author" placeholder="wpisz autora">
@@ -33,13 +43,13 @@
                             <input type="radio" name="category" value="thiller">Thiller<br>
                         </form>
                     </div>
-                    <div>
+                    <div class="search">
                         <form>
                             <input name="pole" placeholder="szukaj">
                         </form>
                     </div>
                 </div>
-                <div>
+                <div class="table">
                         <table class="table">
                                 <thead class="thead">
                                      <tr>

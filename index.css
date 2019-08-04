@@ -1,3 +1,28 @@
-.buttons, h1 {
-    
+body {
+    text-align: center;
+    background-color: #ffd9b3;
+}
+
+h1 {
+    font-size: 100px;
+    color: #AB500B;
+}
+
+div.buttons {
+   width: 1400px;
+   height: 100px;
+   display: inline-flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+input[type=button] {
+
+    background-color: peru;
+    border: 3px solid #AB500B;
+    padding: 35px 150px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 12px;
 }
