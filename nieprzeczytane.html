@@ -30,17 +30,19 @@
                     </form>
                 </div>
                 <div class="add">
-                    <button class="add position" type="button">dodaj pozycję</button>
-                    <input name="title" placeholder="wpisz tytuł">
-                    <input name="author" placeholder="wpisz autora">
-                    Wybierz Kategorię:
                     <form>
-                        <input type="radio" name="category" value="romance">Romans<br>
-                        <input type="radio" name="category" value="fantasy">Fantastyczne<br>
-                        <input type="radio" name="category" value="horror">Horror<br>
-                        <input type="radio" name="category" value="adventure">Przygodowa<br>
-                        <input type="radio" name="category" value="criminal">Kryminalne<br>
-                        <input type="radio" name="category" value="thiller">Thiller<br>
+                        <button class="add position" type="button">dodaj pozycję</button>
+                        <input name="title" placeholder="wpisz tytuł">
+                        <input name="author" placeholder="wpisz autora">
+                        Wybierz Kategorię: <br>
+                        <select multiple name="category">
+                            <option value="romance">Romans</option>
+                            <option value="fantasy">Fantastyczne</option>
+                            <option value="horror">Horror</option>
+                            <option value="adventure">Przygodowa</option>
+                            <option value="criminal">Kryminalne</option>
+                            <option value="thiller">Thiller</option>
+                        </select>
                     </form>
                 </div>
                 <div class="search">
@@ -60,7 +62,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="alt1">
                             <td>11.05.2019</td>
                             <td>Kroniki Jakuba Wędrowycza</td>
                             <td>Andrzej Pilipiuk</td>
@@ -72,7 +74,7 @@
                             <td>Jan Parandowski</td>
                             <td>Fantastyczne</td>
                         </tr>
-                        <tr>
+                        <tr class="alt1">
                             <td>11.05.2019</td>
                             <td>Siewca Wiatru</td>
                             <td>Maja Lidia Kossakowska</td>
