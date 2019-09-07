@@ -1,4 +1,4 @@
-function addNewBookHandler() {
+function addNewBookHandlerRating() {
 
 //document.createElement
 
@@ -8,7 +8,12 @@ const tableHandler = tableCollection1[0];
 const tr = document.createElement('tr');
 
 const tdDate = document.createElement('td');
-tdDate.textContent = '27.08.2019';
+const myDate = new Date();
+const myDateString = myDate.toISOString();
+
+const myDateSlicedString = myDateString.slice(0, 10);
+
+tdDate.textContent = myDateSlicedString;
 
 tr.append(tdDate);
 
