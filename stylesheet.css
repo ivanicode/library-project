@@ -94,3 +94,10 @@ th {
     background-color: ffbb99;
 }
 
+input.pole {
+    background-color: bisque;
+    border: none;
+    font-size: 20px;
+    text-emphasis-color: #ff9999;
+}
+

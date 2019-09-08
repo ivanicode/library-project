@@ -1,3 +1,11 @@
+function showButton() {
+    document.getElementById("save").style.display = "block";
+};
+
+const addNewBookButton = document.getElementById("addNewBook");
+addNewBookButton.addEventListener("click", showButton, true);
+
+
 function addNewBookHandlerRating() {
 
 //document.createElement

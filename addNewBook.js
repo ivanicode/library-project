@@ -1,6 +1,4 @@
 
-
-
 function showButton() {
     document.getElementById("save").style.display = "block";
 };
@@ -85,3 +83,8 @@ tableHandler.prepend(tr);
 
 
 }
+
+
+const array = [{date: '11.05.2019', title: 'Kroniki Jakuba Wędrowycza', author: 'Andrzej Pilipiuk', category: 'komedia'}, 
+               {date: '11.05.2019', title: 'Mitologia', author: 'Jan Parandowski', category: 'Fantastyczne'},
+               {date: '11.05.2019', title: 'Siewca Wiatru', author: 'Maja Lidia Kossakowska', category: 'Fntastyczne'}];
