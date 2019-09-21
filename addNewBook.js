@@ -84,7 +84,33 @@ tableHandler.prepend(tr);
 
 }
 
+const tBodyCollection = document.getElementsByTagName("tbody");
+const tBody = tBodyCollection[0];
 
-const array = [{date: '11.05.2019', title: 'Kroniki Jakuba Wędrowycza', author: 'Andrzej Pilipiuk', category: 'komedia'}, 
+const unReadBooksList = [{date: '11.05.2019', title: 'Kroniki Jakuba Wędrowycza', author: 'Andrzej Pilipiuk', category: 'komedia'}, 
                {date: '11.05.2019', title: 'Mitologia', author: 'Jan Parandowski', category: 'Fantastyczne'},
                {date: '11.05.2019', title: 'Siewca Wiatru', author: 'Maja Lidia Kossakowska', category: 'Fntastyczne'}];
+
+unReadBooksList.forEach(function(bookObject) {
+    const tr = document.createElement("tr");
+    const tdDate = document.createElement("td");
+    tdDate.textContent = bookObject.date;
+
+    tr.append(tdDate);
+
+    const tdTitle = document.createElement("td");
+    tdTitle.textContent = bookObject.title;
+
+    tr.append(tdTitle);
+
+    const tdAuthor = document.createElement("td");
+    tdAuthor.textContent = bookObject.author;
+
+    tr.append(tdAuthor);
+
+    const tdCategory = document.createElement("td");
+    tdCategory.textContent = bookObject.category;
+
+    tr.append(tdCategory);
+    tBody.append(tr);
+});
