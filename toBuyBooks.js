@@ -2,36 +2,10 @@ function showButton() {
     document.getElementById("save").style.display = "block";
 };
 
-function saveBook() {
-    const newBookObj = {};
-    const newBookElement = document.getElementById("newBook");
-    const newBookTds = newBookElement.getElementsByTagName("td");
-    newBookObj.date = newBookTds[0].textContent;
-
-    const titleTd = newBookTds[1];
-    const titleInput = titleTd.getElementsByTagName("input")[0];
-    newBookObj.title = titleInput.value;
-    console.log(newBookObj);
-
-    const categoryTd = newBookTds[3];
-    const categorySelect = categoryTd.getElementsByTagName("select")[0];
-    const selectedCategories = categorySelect.querySelectorAll("option:checked");
-    const selectedCategoriesArray = Array.from(selectedCategories);
-    const categories = selectedCategoriesArray.map(function(categoryObj){
-        return categoryObj.innerHTML;
-    })
-    console.log(categories);
-
-}
-
-
-
-
 const addNewBookButton = document.getElementById("addNewBook");
-addNewBookButton.addEventListener("click", showButton, true)
+addNewBookButton.addEventListener("click", showButton, true);
 
-
-function addNewBookHandlerRating() {
+function addNewBookHandler() {
 
 //document.createElement
 
@@ -39,7 +13,6 @@ const tableCollection1 = document.getElementsByTagName('table');
 const tableHandler = tableCollection1[0];
 
 const tr = document.createElement('tr');
-tr.setAttribute("id", "newBook");
 
 const tdDate = document.createElement('td');
 const myDate = new Date();
@@ -102,42 +75,9 @@ selectCategory.append(optionRomance);
 tdCategory.append(selectCategory);
 tr.append(tdCategory);
 
-const tdRating = document.createElement('td');
-const selectRating = document.createElement('select');
-selectRating.setAttribute('multiple','true');
-
-const option1 = document.createElement('option');
-option1.setAttribute('value','1');
-option1.textContent = 'Na pewno do niej wrócę!';
-
-const option2 = document.createElement('option');
-option2.setAttribute('value','2');
-option2.textContent = 'Świetna';
-
-const option3 = document.createElement('option');
-option3.setAttribute('value','3');
-option3.textContent = 'Dobra';
-
-const option4 = document.createElement('option');
-option4.setAttribute('value','4');
-option4.textContent = 'Średnia';
-
-const option5 = document.createElement('option');
-option5.setAttribute('value','5');
-option5.textContent = 'Kiepska';
-
-selectRating.append(option1);
-selectRating.append(option2);
-selectRating.append(option3);
-selectRating.append(option4);
-selectRating.append(option5);
-tdRating.append(selectRating);
-tr.append(tdRating);
-
 
 
 tableHandler.prepend(tr);
-
 
 
 
@@ -146,15 +86,11 @@ tableHandler.prepend(tr);
 const tBodyCollection = document.getElementsByTagName("tbody");
 const tBody = tBodyCollection[0];
 
-const localStorageKey = "readBooks";
-const readBookList = localStorage.getItem(localStorageKey) || [];
+const toBuyBooksList = [{date: '11.05.2019', title: 'Kroniki Jakuba Wędrowycza', author: 'Andrzej Pilipiuk', category: 'komedia'}, 
+               {date: '11.05.2019', title: 'Mitologia', author: 'Jan Parandowski', category: 'Fantastyczne'},
+               {date: '11.05.2019', title: 'Siewca Wiatru', author: 'Maja Lidia Kossakowska', category: 'Fntastyczne'}];
 
-/*
-[{date: '11.05.2019', title: 'Kroniki Jakuba Wędrowycza', author: 'Andrzej Pilipiuk', category: 'komedia', rating: 'Świetna!'}, 
-               {date: '11.05.2019', title: 'Mitologia', author: 'Jan Parandowski', category: 'Fantastyczne', rating: 'Bardzo dobra'},
-               {date: '11.05.2019', title: 'Siewca Wiatru', author: 'Maja Lidia Kossakowska', category: 'Fntastyczne', rating: 'Bardzo dobra'}];
-*/
-readBookList.forEach(function(bookObject) {
+toBuyBookList.forEach(function(bookObject) {
     const tr = document.createElement("tr");
     const tdDate = document.createElement("td");
     tdDate.textContent = bookObject.date;
@@ -175,10 +111,5 @@ readBookList.forEach(function(bookObject) {
     tdCategory.textContent = bookObject.category;
 
     tr.append(tdCategory);
-
-    const tdRating = document.createElement("td");
-    tdRating.textContent = bookObject.rating;
-
-    tr.append(tdRating);
     tBody.append(tr);
 });
