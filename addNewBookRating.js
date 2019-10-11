@@ -13,6 +13,11 @@ function saveBook() {
     newBookObj.title = titleInput.value;
     console.log(newBookObj);
 
+    const authorTd = newBookTds[2];
+    const authorInput = authorTd.getElementsByTagName("input")[0];
+    newBookObj.author = authorInput.value;
+    console.log(newBookObj);
+
     const categoryTd = newBookTds[3];
     const categorySelect = categoryTd.getElementsByTagName("select")[0];
     const selectedCategories = categorySelect.querySelectorAll("option:checked");
@@ -21,6 +26,10 @@ function saveBook() {
         return categoryObj.innerHTML;
     })
     console.log(categories);
+
+    const ratingTd = newBookTds[4];
+    const ratingSelect = ratingTd.getElementsByTagName("select")[0];
+    
 
 }
 
