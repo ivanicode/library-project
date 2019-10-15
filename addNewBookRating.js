@@ -1,3 +1,5 @@
+const localStorageKey = "readBooks";
+
 function showButton() {
     document.getElementById("save").style.display = "block";
 };
@@ -11,25 +13,33 @@ function saveBook() {
     const titleTd = newBookTds[1];
     const titleInput = titleTd.getElementsByTagName("input")[0];
     newBookObj.title = titleInput.value;
-    console.log(newBookObj);
+    
 
     const authorTd = newBookTds[2];
     const authorInput = authorTd.getElementsByTagName("input")[0];
     newBookObj.author = authorInput.value;
-    console.log(newBookObj);
+    
 
     const categoryTd = newBookTds[3];
     const categorySelect = categoryTd.getElementsByTagName("select")[0];
     const selectedCategories = categorySelect.querySelectorAll("option:checked");
     const selectedCategoriesArray = Array.from(selectedCategories);
     const categories = selectedCategoriesArray.map(function(categoryObj){
-        return categoryObj.innerHTML;
+        return categoryObj.value;
     })
-    console.log(categories);
+
+    newBookObj.category = categories;
 
     const ratingTd = newBookTds[4];
     const ratingSelect = ratingTd.getElementsByTagName("select")[0];
+    newBookObj.rating = ratingSelect.value;
     
+    console.log(newBookObj);
+
+    const currentBooks = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    currentBooks.push(newBookObj);
+    localStorage.setItem(localStorageKey,JSON.stringify(currentBooks));
+
 
 }
 
@@ -113,7 +123,6 @@ tr.append(tdCategory);
 
 const tdRating = document.createElement('td');
 const selectRating = document.createElement('select');
-selectRating.setAttribute('multiple','true');
 
 const option1 = document.createElement('option');
 option1.setAttribute('value','1');
@@ -155,8 +164,8 @@ tableHandler.prepend(tr);
 const tBodyCollection = document.getElementsByTagName("tbody");
 const tBody = tBodyCollection[0];
 
-const localStorageKey = "readBooks";
-const readBookList = localStorage.getItem(localStorageKey) || [];
+
+const readBookList = JSON.parse(localStorage.getItem(localStorageKey)) || [];
 
 /*
 [{date: '11.05.2019', title: 'Kroniki Jakuba Wędrowycza', author: 'Andrzej Pilipiuk', category: 'komedia', rating: 'Świetna!'}, 
