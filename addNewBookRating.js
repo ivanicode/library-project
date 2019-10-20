@@ -1,5 +1,23 @@
 const localStorageKey = "readBooks";
 
+const categoriesDictionary = {
+    romance: "Romans",
+    fanstasy: "Fantastyczne",
+    horror: "Horror",
+    adventure: "Przygodowe",
+    criminal: "Kryminał",
+    thriller: "Thriller"
+};
+
+const ratingDictionary = [
+    'Wybierz',
+    'Na pewno do niej wrócę!',
+    'Świetna',
+    'Dobra',
+    'Śrenia',
+    'Kiepska'
+];
+
 function showButton() {
     document.getElementById("save").style.display = "block";
 };
@@ -88,67 +106,26 @@ const tdCategory = document.createElement('td');
 const selectCategory = document.createElement('select');
 selectCategory.setAttribute('multiple', 'true');
 
-const optionRomance = document.createElement('option');
-optionRomance.setAttribute('value', 'romance');
-optionRomance.textContent = 'Romans';
+Object.keys(categoriesDictionary).sort().forEach(function(key){
+    const option = document.createElement('option');
+    option.setAttribute('value', key);
+    option.textContent = categoriesDictionary[key];
+    selectCategory.append(option);
+});
 
-const optionFantasy = document.createElement('option');
-optionFantasy.setAttribute('value', 'fantasy');
-optionFantasy.textContent = 'Fantastyczne';
-
-const optionHorror = document.createElement('option');
-optionHorror.setAttribute('value', 'horror');
-optionHorror.textContent = 'Horror';
-
-const optionAdventure = document.createElement('option');
-optionAdventure.setAttribute('value', 'adventure');
-optionAdventure.textContent = 'Przygodowe';
-
-const optionCriminal = document.createElement('option');
-optionCriminal.setAttribute('value', 'criminal');
-optionCriminal.textContent = 'Kryminał';
-
-const optionThiller = document.createElement('option');
-optionThiller.setAttribute('value', 'thiller');
-optionThiller.textContent = 'Thiller';
-
-selectCategory.append(optionFantasy);
-selectCategory.append(optionThiller);
-selectCategory.append(optionCriminal);
-selectCategory.append(optionAdventure);
-selectCategory.append(optionHorror);
-selectCategory.append(optionRomance);
 tdCategory.append(selectCategory);
 tr.append(tdCategory);
 
 const tdRating = document.createElement('td');
 const selectRating = document.createElement('select');
 
-const option1 = document.createElement('option');
-option1.setAttribute('value','1');
-option1.textContent = 'Na pewno do niej wrócę!';
+ratingDictionary.forEach(function(rating, index){
+    const option = document.createElement('option');
+    option.setAttribute('value',index);
+    option.textContent = rating;
+    selectRating.append(option);
+});
 
-const option2 = document.createElement('option');
-option2.setAttribute('value','2');
-option2.textContent = 'Świetna';
-
-const option3 = document.createElement('option');
-option3.setAttribute('value','3');
-option3.textContent = 'Dobra';
-
-const option4 = document.createElement('option');
-option4.setAttribute('value','4');
-option4.textContent = 'Średnia';
-
-const option5 = document.createElement('option');
-option5.setAttribute('value','5');
-option5.textContent = 'Kiepska';
-
-selectRating.append(option1);
-selectRating.append(option2);
-selectRating.append(option3);
-selectRating.append(option4);
-selectRating.append(option5);
 tdRating.append(selectRating);
 tr.append(tdRating);
 
@@ -190,12 +167,14 @@ readBookList.forEach(function(bookObject) {
     tr.append(tdAuthor);
 
     const tdCategory = document.createElement("td");
-    tdCategory.textContent = bookObject.category;
+    tdCategory.textContent = bookObject.category.map(function(cat){
+        return categoriesDictionary[cat];
+    }).join(", ");
 
     tr.append(tdCategory);
 
     const tdRating = document.createElement("td");
-    tdRating.textContent = bookObject.rating;
+    tdRating.textContent = ratingDictionary[bookObject.rating];
 
     tr.append(tdRating);
     tBody.append(tr);
