@@ -1,3 +1,26 @@
+
+function User(age){
+    const checkIfAdult = function(){
+        return age >= 18;
+    }
+    this.olderMe = age + 10;
+    this.checkMe = function(){
+        return checkIfAdult();
+    };
+    this.age = age;
+}
+
+const myUser = new User(16);
+console.log(myUser);
+console.log(myUser.checkMe())
+
+
+
+
+
+
+
+
 const employees = [{
     name: "Kowalski", 
     birthYear: 1985,
@@ -18,8 +41,8 @@ const employees = [{
 //console.log(sortNumbersByOrder("asc", "salary"));
 //console.log(sortTextByOrder("asc"));
 
-const foo = x("asc", "salary", "number");
-console.log(employees.sort(foo));
+//const foo = x("asc", "salary", "number");
+//console.log(employees.sort(foo));
 
 function x(sort, key, type){
     return function(item1, item2){
