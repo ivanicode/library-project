@@ -1,10 +1,18 @@
+(
+    function (){
 
 function showButton() {
     document.getElementById("save").style.display = "block";
 };
 
 const addNewBookButton = document.getElementById("addNewBook");
-addNewBookButton.addEventListener("click", showButton, true);
+addNewBookButton.addEventListener("click", function(){
+    showButton();
+    addNewBookHandler();
+}, true);
+
+const saveBookButton = document.getElementById("save");
+saveBookButton.addEventListener("click", saveBook, true);
 
 function addNewBookHandler() {
 
@@ -114,3 +122,44 @@ unReadBooksList.forEach(function(bookObject) {
     tr.append(tdCategory);
     tBody.append(tr);
 });
+
+function saveBook() {
+    const newBookObj = {};
+    const newBookElement = document.getElementById("newBook");
+    const newBookTds = newBookElement.getElementsByTagName("td");
+    newBookObj.date = newBookTds[0].textContent;
+
+    const titleTd = newBookTds[1];
+    const titleInput = titleTd.getElementsByTagName("input")[0];
+    newBookObj.title = titleInput.value;
+    
+
+    const authorTd = newBookTds[2];
+    const authorInput = authorTd.getElementsByTagName("input")[0];
+    newBookObj.author = authorInput.value;
+    
+
+    const categoryTd = newBookTds[3];
+    const categorySelect = categoryTd.getElementsByTagName("select")[0];
+    const selectedCategories = categorySelect.querySelectorAll("option:checked");
+    const selectedCategoriesArray = Array.from(selectedCategories);
+    const categories = selectedCategoriesArray.map(function(categoryObj){
+        return categoryObj.value;
+    })
+
+    newBookObj.category = categories;
+
+   /* const ratingTd = newBookTds[4];
+    const ratingSelect = ratingTd.getElementsByTagName("select")[0];
+    newBookObj.rating = ratingSelect.value;
+    */
+    console.log(newBookObj);
+
+    const currentBooks = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    currentBooks.push(newBookObj);
+    localStorage.setItem(localStorageKey,JSON.stringify(currentBooks));
+
+
+}
+    }
+) ();
