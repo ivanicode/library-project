@@ -1,5 +1,55 @@
+const hex2Dec = {
+    a: 10,
+    b: 11,
+    c: 12,
+    d: 13,
+    e: 14,
+    f: 15
+}
 
-function User(age){
+function getDecFromHex(hex) {
+    return !isNaN(parseInt(hex)) ? parseInt(hex) : hex2Dec[hex];
+}
+
+function calculate(val1, val2){
+    return (val1 * 16) + val2;
+}
+
+function getRGB (hex){
+    if (typeof hex === "string" && hex.length === 7) {
+        //"#000000" "rgb(0,0,0)"
+
+        const hexArray = hex.split("");
+        const decArray = hexArray.map(function(el, index){
+            if (index) {
+                return getDecFromHex(el.toLowerCase())
+            }
+        })
+
+        const r = calculate(decArray[1], decArray[2]);
+        const g = calculate(decArray[3], decArray[4]);
+        const b = calculate(decArray[5], decArray[6]);
+
+        //return "rgb("+ r + ", " + g + ", " + b + ")";
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+}
+
+console.log(getRGB("#00FF00"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function User(age){
     const checkIfAdult = function(){
         return age >= 18;
     }
@@ -132,7 +182,7 @@ function useKey(key){
 
 }
 
-
+*/
 
 
 
