@@ -60,6 +60,72 @@ console.log(getRGB("#00FF00"));
 }
 */
 
+
+
+function compareObj(obj1, obj2){
+    let isTheSame = true;
+    Object.keys(obj1).forEach(function(element, index){
+        if(obj1[element] === obj2[element]){
+            isTheSame = isTheSame && true;
+        } else {
+            isTheSame = isTheSame && false;
+        }
+    });
+    return isTheSame;
+}
+
+const myArr = [];
+myArr[0] = 11;
+myArr[1] = 32;
+myArr[2] = 3;
+myArr[3] = 7;
+myArr[4] = 100;
+myArr[5] = 17;
+
+const myResultArr = [];
+myResultArr[0] = myArr[3];
+myResultArr[1] = myArr[4];
+myResultArr[2] = myArr[5];
+myResultArr[3] = myArr[0];
+myResultArr[4] = myArr[1];
+myResultArr[5] = myArr[2];
+
+if (compareObj(solution(myArr), [7, 100, 17, 11, 32, 3])) {
+    console.info("Funkcja solution działa poprawnie")
+} else {
+    console.error("Funkcja solution nie działa")
+}
+
+function solution(arr){
+    const lastIndex = arr.length -1;
+    console.log(arr[3])
+    const newArr = arr.map(function(number, index, arr){
+        let newIndex = index + 3;
+        if(newIndex > lastIndex){
+            newIndex = index - 3; 
+        }
+        return arr[newIndex];
+    })
+    return newArr;
+}
+
+
+
+
+
+
+
+
+//funkcja dostaje i zwraca tablice
+//zwraca tablice, o przesuniętym indexie o 3 elementy w prawo
+//
+
+
+
+
+
+
+/*
 if (compareObj({a: 1, b: 2},{a: 1, b: 2}) === true) {
     console.info("Funkcja compareObj działa poprawnie")
 } else {
@@ -100,7 +166,7 @@ function solution(num){
     return result;
 }
 
-
+*/
 
 
 
