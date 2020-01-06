@@ -97,8 +97,26 @@ if (compareObj(solution(myArr), [7, 100, 17, 11, 32, 3])) {
 }
 
 function solution(arr){
+    for(var i = 0; i < arr.length; i++){
+        const lastIndex = arr.length -1;
+        let newIndex = i + 3;
+        if(newIndex > lastIndex) {
+            newIndex = i - 3;
+        }
+        return arr[newIndex];
+    }
+    return newArr;
+}
+
+
+
+
+
+
+
+/*
+function solution(arr){
     const lastIndex = arr.length -1;
-    console.log(arr[3])
     const newArr = arr.map(function(number, index, arr){
         let newIndex = index + 3;
         if(newIndex > lastIndex){
@@ -109,7 +127,7 @@ function solution(arr){
     return newArr;
 }
 
-
+*/
 
 
 
