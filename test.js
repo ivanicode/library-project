@@ -74,6 +74,69 @@ function compareObj(obj1, obj2){
     return isTheSame;
 }
 
+/*
+const myArr1 = [];
+myArr1[0] = 2;
+myArr1[1] = 4;
+myArr1[2] = 6;
+myArr1[3] = 8;
+myArr1[4] = 10;
+myArr1[5] = 12;
+myArr1[6] = 14;
+
+const length = 7;
+const K = 3;
+const myResultArr1 = [];
+
+//[3, 8, 9, 7, 6] -> [6, 3, 8, 9, 7]
+//[6, 3, 8, 9, 7] -> [7, 6, 3, 8, 9]
+//[7, 6, 3, 8, 9] -> [9, 7, 6, 3, 8]
+
+myResultArr1[0] = myArr1[4];
+myResultArr1[1] = myArr1[5];
+myResultArr1[2] = myArr1[6];
+myResultArr1[3] = myArr1[0];
+myResultArr1[4] = myArr1[1];
+myResultArr1[5] = myArr1[2];
+myResultArr1[6] = myArr1[3];
+
+
+const length = myResultArr1.length; //7
+const index = 3; //newIndex = 6
+const K = 3;
+
+const newIndex = index + K; 
+const restartIndex = length - K;
+
+*/
+function solution(arr, K){
+    const length = arr.length;
+    const newK = K%length;
+    if(!newK){
+        return arr;
+    }
+    const newArr = arr.map(function(number, index, arr){ //index = 4
+        let newIndex = index + newK; // newIndex = 7
+        //console.log(newIndex, index);
+        if(index >= newK) {
+            return arr[index - newK];
+        } else {
+            //console.log(index, newIndex, newK, length)
+            return arr[length - newK + index];
+        }
+        /*
+        if(newIndex < length){
+            console.log(arr[newIndex]);
+            return arr[newIndex]; 
+        } else {
+            return arr[newIndex - length];
+        }
+        */
+    })
+    return newArr;
+}
+
+
 const myArr = [];
 myArr[0] = 11;
 myArr[1] = 32;
@@ -81,6 +144,9 @@ myArr[2] = 3;
 myArr[3] = 7;
 myArr[4] = 100;
 myArr[5] = 17;
+myArr[6] = 5;
+myArr[7] = 90;
+[11, 32, 3, 7, 100, 17, 5, 90]
 
 const myResultArr = [];
 myResultArr[0] = myArr[3];
@@ -89,13 +155,14 @@ myResultArr[2] = myArr[5];
 myResultArr[3] = myArr[0];
 myResultArr[4] = myArr[1];
 myResultArr[5] = myArr[2];
-
-if (compareObj(solution(myArr), [7, 100, 17, 11, 32, 3])) {
+console.log(solution(myArr, 3));
+if (compareObj(solution(myArr, 3), [17,5,90,11,32,3,7,100])) {
     console.info("Funkcja solution działa poprawnie")
 } else {
     console.error("Funkcja solution nie działa")
 }
 
+/*
 function solution(arr){
     for(var i = 0; i < arr.length; i++){
         const lastIndex = arr.length -1;
@@ -105,29 +172,17 @@ function solution(arr){
         }
         return arr[newIndex];
     }
-    return newArr;
 }
-
-
-
-
-
-
-
-/*
-function solution(arr){
-    const lastIndex = arr.length -1;
-    const newArr = arr.map(function(number, index, arr){
-        let newIndex = index + 3;
-        if(newIndex > lastIndex){
-            newIndex = index - 3; 
-        }
-        return arr[newIndex];
-    })
-    return newArr;
-}
-
 */
+
+
+
+
+
+
+
+
+
 
 
 
